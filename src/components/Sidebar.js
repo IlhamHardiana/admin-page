@@ -22,7 +22,9 @@ export default function Sidebar() {
     return (
     <div className="h-screen border-r border-black w-64 px-9">
         <div className="flex flex-row items-center pt-8">
-            <img src={Logo} alt="sakir" className=  "w-auto -mt-16" />
+            <a href="/">
+                <img src={Logo}  alt="sakir" className= "w-auto -mt-16" />
+            </a>
         </div>
         <div className="space-y-24">
         <div>
@@ -32,11 +34,11 @@ export default function Sidebar() {
                 return (
                     <li 
                         key={index} 
-                        className="flex flex-row items-center text-gray-600 hover:bg-sky-200 "
                     >
-                        <div className="mr-5 ">{val.icon}</div>
-                        {/* <div className="cursor-pointer">{val.name} {val.path}</div>    */}
-                        <a href={val.to}><div className="cursor-pointer">{val.name} {val.path}</div></a>
+                        <a href={val.to} className="flex items-center text-gray-600 hover:bg-sky-200 ">
+                            <div className="mr-2">{val.icon}</div>
+                            <div className="cursor-pointer">{val.name}</div>
+                        </a>
                     </li>
                 );
             })}
