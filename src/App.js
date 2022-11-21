@@ -1,39 +1,53 @@
-import { BrowserRouter, Routes,Route,  } from "react-router-dom";
+import { BrowserRouter, Switch, Route  } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import Sidebar from "./components/Sidebar";
-import ContentRight from "./components/Sidebar/Content/ContentRight";
-import ContentLeft from "./components/Sidebar/Content/ContentLeft";
-import  Pengguna  from "./components/Sidebar/Content/Pengguna";
-import Guru from "./components/Sidebar/Content/Guru";
-import Siswa from "./components/Sidebar/Content/Siswa";
-import Buku from "./components/Sidebar/Content/Buku";
-import TanggalPengambilan from "./components/Sidebar/Content/TanggalPengambilan";
-
-
-
+import ContentRight from "./components/ContentRight";
+import ContentLeft from "./components/ContentLeft";
+import  Pengguna  from "./components/Pengguna";
+import Guru from "./components/Guru";
+import Siswa from "./components/Siswa";
+import Buku from "./components/Buku";
+import TanggalPengambilan from "./components/TanggalPengambilan";
 
 export default function App() {
   return (
     <>
   <div className="w-full min-h-screen bg-gray-300 flex flex-row">
-    {/* <ContentLeft /> */}
-    <Sidebar />
-    <ContentRight />
     <BrowserRouter>
-      <Routes>
-        <Route to="/" element={<ContentLeft />}>
-          <Route to='/Pengguna' element={<Pengguna />}/>
-          <Route to='/Guru' element={<Guru />}/>
-          <Route to='/Siswa' element={<Siswa />}/>
-          <Route to='/Buku' element={<Buku />}/>
-          <Route to='/TanggalPengambilan' element={<TanggalPengambilan />}/>
+      <Switch>
+        <Route path='/' exact>
+          <Sidebar />
+          <ContentLeft />
+          <ContentRight />
         </Route>
-      </Routes>
+        <Route path='/pengguna'>
+          <Sidebar />
+          <Pengguna />
+          <ContentRight />
+        </Route>
+        <Route path='/guru'>
+          <Sidebar />
+          <Guru />
+          <ContentRight />
+        </Route>
+        <Route path='/siswa'>
+          <Sidebar />
+          <Siswa />
+          <ContentRight />
+        </Route>
+        <Route path='/buku'>
+          <Sidebar />
+          <Buku />
+          <ContentRight />
+        </Route>
+        <Route path='/tanggal-pengambilan'>
+          <Sidebar />
+          <TanggalPengambilan />
+          <ContentRight />
+        </Route>
+      </Switch>
     </BrowserRouter>
   </div>
     </>
   );
 }
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);

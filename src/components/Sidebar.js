@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from '../../assets/logo.png';
+import Logo from '../assets/logo.png';
 import {BiCalendar,
         BiHomeAlt,
         BiBook,
@@ -11,11 +11,11 @@ import { Link } from "react-router-dom";
 
 export default function Sidebar() {
     const menu=[
-        {name:"Pengguna", to:'/Pengguna' ,icon:<BiHomeAlt/>, },
-        {name:"Guru", to:'/Guru' ,icon:<FiUser/> },
-        {name:"Siswa", to:'/Siswa' ,icon:<FaUsers/> },
-        {name:"Buku", to:'/Buku', icon:<BiBook/> },
-        {name:"Tangggal Pengambilan", to:'/Tanggal Pengambilan', icon:<BiCalendar/> },
+        {name:"Pengguna", to:'/pengguna' ,icon:<BiHomeAlt/>, },
+        {name:"Guru", to:'/guru' ,icon:<FiUser/> },
+        {name:"Siswa", to:'/siswa' ,icon:<FaUsers/> },
+        {name:"Buku", to:'/buku', icon:<BiBook/> },
+        {name:"Tangggal Pengambilan", to:'/tanggal-pengambilan', icon:<BiCalendar/> },
     ];
 
 
@@ -36,7 +36,7 @@ export default function Sidebar() {
                     >
                         <div className="mr-5 ">{val.icon}</div>
                         {/* <div className="cursor-pointer">{val.name} {val.path}</div>    */}
-                        <Link to={val.to}><div className="cursor-pointer">{val.name} {val.path}</div></Link>
+                        <a href={val.to}><div className="cursor-pointer">{val.name} {val.path}</div></a>
                     </li>
                 );
             })}
