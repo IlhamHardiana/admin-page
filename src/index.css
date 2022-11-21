@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Galindo&family=Nunito+Sans:wght@200;300;400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+}
+
+.kartu{
+  @apply bg-blue-600 h-48 flex-1 rounded-lg relative overflow-hidden;
+}
+
+.kartu::before{
+  content: '';
+  @apply bg-indigo-600 h-56 w-1/2 absolute rounded-r-full;
+}
+
+.kartu::after{
+  content: '';
+  @apply bg-slate-400 h-36 w-36 absolute -right-11 -top-6 rounded-full;
+}
+
+.content-left::-webkit-scrollbar{
+  display: none;
+}
+
+.btn {
+  @apply rounded-full;
+}
+
